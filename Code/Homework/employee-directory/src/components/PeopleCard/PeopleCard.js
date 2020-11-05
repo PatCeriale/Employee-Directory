@@ -1,36 +1,30 @@
 import React from "react";
 import "./style.css";
 import API from "../../utils/API";
-import axios from "axios";
-const BASEURL = "https://randomuser.me/api/?results=200&nat=us";
 
-{
-  const peopleData = axios.get(BASEURL).then((res) => {
-    res.data.results[1].name.first.json;
-  });
-  //   console.log(peopleData);
-}
-
-function PeopleCard() {
+function PeopleCard(props) {
   //   const { name, image, occupation, location } = props.friend;
   return (
     <div className="PeopleCard">
       <div className="media">
         <img
           className="align-self-start mr-3"
-          src="https://place-puppy.com/150x150"
+          src={props.image}
           //   picture.large
-          alt="puppy"
+          alt={props.first}
         />
         <div className="media-body">
           <h5 className="mt-0">
-            <strong>name.first name.last</strong>
+            <strong>
+              {props.first} {props.last}
+            </strong>
           </h5>
           <p>
-            Address: location.street.number location.street.name location.city,
-            location.state location.postcode
-            <br></br>Email: email
-            <br></br>Phone: phone<br></br>Age: dob.age
+            Address: {props.streetNumber} {props.streetName} {props.city},
+            {props.state} {props.postcode}
+            <br></br>Email: {props.email}
+            <br></br>Phone: {props.phone}
+            <br></br>Age: {props.age}
           </p>
         </div>
       </div>
